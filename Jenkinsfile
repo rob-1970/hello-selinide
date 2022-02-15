@@ -3,10 +3,16 @@ pipeline {
 
     stages {
 
+        stage('Clean') {
+            steps {
+                sh './gradlew clean'
+            }
+        }
+
         stage('Test') {
             steps {
                 //sh './gradlew clean test check pitest'
-                sh './gradlew clean test check'
+                sh './gradlew test'
                 // ==============================================================
                 // AMB el que hi ha fins aqui ja n'hi auria prou => JENKINS MINIM
                 // ==============================================================
