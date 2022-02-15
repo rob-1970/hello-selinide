@@ -1,4 +1,7 @@
 pipeline {
+    // =======================================================================
+    // CLONAT el Jenkinsfile del projecte de JENKINS / GitHub => Hello SPRING
+    // =======================================================================
     agent any
     stages {
         stage('Clean') {
