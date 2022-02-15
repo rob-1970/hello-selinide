@@ -7,6 +7,9 @@ pipeline {
             steps {
                 //sh './gradlew clean test check pitest'
                 sh './gradlew clean test check'
+                // ==============================================================
+                // AMB el que hi ha fins aqui ja n'hi auria prou => JENKINS MINIM
+                // ==============================================================
             }
             post {
                 always {
@@ -34,16 +37,22 @@ pipeline {
                 //git branch: 'main', url: 'https://github.com/rob-1970/hello-spring.git'
 
                 // Run Gradle Wrapper on a Unix agent.
-                sh "./gradlew assemble"
+                // ==============================================================
+                // AMB el que hi ha fins aqui ja n'hi auria prou => JENKINS MINIM
+                // ==============================================================
+                //sh "./gradlew assemble"
             }
 
             post {
                 // If Gradle was able to run the tests, even if some of the test
                 // failed, record the test results and archive the jar file.
-                success {
-                    archiveArtifacts 'build/libs/*.jar'      // ==>> CONFIGURACIÓ ORIGINAL BÀSICA
-                    //archiveArtifacts artifacts: 'build/libs/*.jar', followSymlinks: false
-                }
+                // ==============================================================
+                // AMB el que hi ha fins aqui ja n'hi auria prou => JENKINS MINIM
+                // ==============================================================
+                //success {
+                //    archiveArtifacts 'build/libs/*.jar'      // ==>> CONFIGURACIÓ ORIGINAL BÀSICA
+                //    //archiveArtifacts artifacts: 'build/libs/*.jar', followSymlinks: false
+                //}
             }
         }
 
