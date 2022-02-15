@@ -5,22 +5,23 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh './gradlew clean test check pitest'
+                //sh './gradlew clean test check pitest'
+                sh './gradlew clean test check'
             }
             post {
                 always {
                     junit 'build/test-results/test/*.xml'
-                    jacoco execPattern: 'build/jacoco/*.exec'
-                    recordIssues(
+                    //jacoco execPattern: 'build/jacoco/*.exec'
+                    //recordIssues(
                         // Añadimos la lista de herramientas de DIGESTION que tratara Jenkins
-                        tools: [
+                        //tools: [
                             // Habilitar herramienta PMD que vamos a tratar desde Jenkins
-                            pmdParser(pattern: 'build/reports/pmd/*.xml'),  // Posar COMA cuan n'hi ha mes d'un
+                            //pmdParser(pattern: 'build/reports/pmd/*.xml'),  // Posar COMA cuan n'hi ha mes d'un
                             // Habilitar que pueda utilizar los INFORMES de PITEST desde Jenkins
-                            pit(pattern: 'build/reports/pitest/*.xml')
+                            //pit(pattern: 'build/reports/pitest/*.xml')
                             // Habilitar que pueda utilizar los INFORMES de FindBugs desde Jenkins
-                        ]
-                    )
+                        //]
+                    //)
                 }
             }
         }
